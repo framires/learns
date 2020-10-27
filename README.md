@@ -3,6 +3,7 @@
 
 
 ## Start a project
+* Is necessary has  installed a MySQL in your machine, configure the connection in file application.properties.
 * Execute the file  CREATE_TABLE.sql in your database  or create a schema heroes and change in the <b>application.properties</b> parameter spring.jpa.hibernate.ddl-auto  for  <b>create</b>.
 
 
