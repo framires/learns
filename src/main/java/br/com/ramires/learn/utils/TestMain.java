@@ -14,14 +14,16 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class TestMain {
 
+    private static Workbook workbook;
+
     public static void main(String[] args) {
 
 	String fileLocation = "HEROES.xlsx";
 	try {
 
 	    InputStream is = TestMain.class.getClassLoader().getResourceAsStream(fileLocation);
-	    
-	    Workbook workbook = new XSSFWorkbook(is);
+
+	    workbook = new XSSFWorkbook(is);
 
 	    Sheet sheet = workbook.getSheetAt(0);
 
@@ -30,7 +32,23 @@ public class TestMain {
 	    for (Row row : sheet) {
 		data.put(i, new ArrayList<String>());
 		for (Cell cell : row) {
-		    System.out.println(cell.getStringCellValue());
+		    switch (cell.getCellType()) {
+		    case STRING:
+			System.out.println(cell.getStringCellValue());
+			break;
+		    case NUMERIC:
+			System.out.println(cell.getNumericCellValue());
+			break;
+		    case BOOLEAN:
+			System.out.println(cell.getBooleanCellValue());
+			break;
+		    case FORMULA:
+			System.out.println(cell.getCellFormula().toString());
+			break;
+		    default:
+			System.out.println(cell.getStringCellValue());
+		    }
+
 		}
 		i++;
 	    }
