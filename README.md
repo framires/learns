@@ -1,6 +1,14 @@
 # RAMIRES- FIRST STEP WITH JAVA SPRING BOOT + JPA + EXCEL
 
 
+## Basic Setup
+* Java 1.8.
+* SpringBoot 2.3.4.
+* Mysql 8.0.15.
+* Configure Lombok <https://dicasdejava.com.br/como-configurar-o-lombok-no-eclipse/>.
+* Apache Maven 3.6.1+
+
+ ** For more information verify file Step-Step in  src/main/resources/setupConfig.**
 
 ## Start a project
 * Is necessary has  installed a MySQL in your machine, configure the connection in file application.properties.
