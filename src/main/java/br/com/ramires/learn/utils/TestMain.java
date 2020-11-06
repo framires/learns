@@ -26,28 +26,26 @@ public class TestMain {
 	    workbook = new XSSFWorkbook(is);
 
 	    Sheet sheet = workbook.getSheetAt(0);
-
-	    Map<Integer, List<String>> data = new HashMap<>();
-	    int i = 0;
+		int i = 0;
+		
 	    for (Row row : sheet) {
-		data.put(i, new ArrayList<String>());
-		for (Cell cell : row) {
-		    switch (cell.getCellType()) {
-		    case STRING:
-			System.out.println(cell.getStringCellValue());
-			break;
-		    case NUMERIC:
-			System.out.println(cell.getNumericCellValue());
-			break;
-		    case BOOLEAN:
-			System.out.println(cell.getBooleanCellValue());
-			break;
-		    case FORMULA:
-			System.out.println(cell.getCellFormula().toString());
-			break;
-		    default:
-			System.out.println(cell.getStringCellValue());
-		    }
+			for (Cell cell : row) {
+				switch (cell.getCellType()) {
+				case STRING:
+				System.out.println(cell.getStringCellValue());
+				break;
+				case NUMERIC:
+				System.out.println(cell.getNumericCellValue());
+				break;
+				case BOOLEAN:
+				System.out.println(cell.getBooleanCellValue());
+				break;
+				case FORMULA:
+				System.out.println(cell.getCellFormula().toString());
+				break;
+				default:
+				System.out.println(cell.getStringCellValue());
+			}
 
 		}
 		i++;

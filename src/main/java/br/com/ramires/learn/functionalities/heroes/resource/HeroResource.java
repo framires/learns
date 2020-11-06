@@ -33,7 +33,7 @@ public class HeroResource {
 	    	@ApiResponse(code = 200, message = "Find all Heroes sucess"),
 	    	@ApiResponse(code = 500, message = "Internal Server Error", response = ErrorResponseDTO.class) })
     @GetMapping(path = BASE_URI_V1 + "/findAll")
-    public ResponseEntity<List<HeroResponse>> getListCars() {
+    public ResponseEntity<List<HeroResponse>> getHeroes() {
 
 	List<HeroResponse> heroes = new ArrayList<>();
 
