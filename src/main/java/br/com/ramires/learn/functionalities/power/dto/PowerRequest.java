@@ -1,5 +1,7 @@
 package br.com.ramires.learn.functionalities.power.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,7 +9,9 @@ import lombok.Setter;
 @Setter
 public class PowerRequest {
 
-    private Integer id;
-    private Integer name;
+	private Integer id;
+
+	@NotBlank(message = "field name is required")
+	private String name;
 
 }

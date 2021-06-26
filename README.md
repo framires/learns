@@ -22,5 +22,18 @@
 * <http://localhost:8080/v2/api-docs>      <i> JSON Docs</i>
 
 
+## Configure Maven Build
+
+* Run Configuration > Maven Build > Click Right > Create New Maven Build
+* -> set workspace project : ${workspace_loc:/learns}
+* -> goals : clean package install
+* -> Checkbox :  [x] Update SnapShot  [X] SkipTest 
+
+
+
+
+## Recommend Plugins (Eclipse/IntelliJ)
+
+* Eclipe toolbar > Help > Eclipse MarketPlace (	<b> SonarLint </b> / <b> STS tools</b>)
 
 
