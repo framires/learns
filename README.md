@@ -5,10 +5,12 @@
 * Java 1.8.
 * SpringBoot 2.3.4.
 * Mysql 8.0.15.
-* Configure Lombok <https://dicasdejava.com.br/como-configurar-o-lombok-no-eclipse/>.
+* Configure Lombok [Link](https://dicasdejava.com.br/como-configurar-o-lombok-no-eclipse/).
 * Apache Maven 3.6.1+
 
- ** For more information verify file Step-Step in  src/main/resources/setupConfig.**
+```
+  For more information verify file Step-Step in  src/main/resources/setupConfig.
+  ```
 
 ## Start a project
 * Is necessary has  installed a MySQL in your machine, configure the connection in file application.properties.
@@ -35,5 +37,10 @@
 ## Recommend Plugins (Eclipse/IntelliJ)
 
 * Eclipe toolbar > Help > Eclipse MarketPlace (	<b> SonarLint </b> / <b> STS tools</b>)
+
+## Tips
+
+* [MapStruct](https://stackabuse.com/guide-to-mapstruct-in-java-advanced-mapping-library)
+* [JPQL](https://thorben-janssen.com/jpql/)
 
 
