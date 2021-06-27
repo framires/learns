@@ -26,17 +26,18 @@ import lombok.Setter;
 @Table(name = "HERO")
 public class Hero extends AuditableEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	private Integer id;
 
-    @Size(max = 100)
-    @Column(name = "NAME")
-    private String name;
+	@Size(max = 100)
+	@Column(name = "NAME")
+	private String name;
 
-    @ManyToMany(cascade = { CascadeType.MERGE }, fetch = FetchType.LAZY)
-    @JoinTable(name = "HERO_POWER", joinColumns = { @JoinColumn(name = "HERO_ID") }, inverseJoinColumns = { @JoinColumn(name = "POWER_ID") })
-    private List<Power> powersList;
+	@ManyToMany(cascade = { CascadeType.MERGE }, fetch = FetchType.LAZY)
+	@JoinTable(name = "HERO_POWER", joinColumns = { @JoinColumn(name = "HERO_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "POWER_ID") })
+	private List<Power> powersList;
 
 }

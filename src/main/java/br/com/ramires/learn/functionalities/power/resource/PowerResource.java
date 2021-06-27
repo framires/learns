@@ -1,6 +1,5 @@
 package br.com.ramires.learn.functionalities.power.resource;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -76,7 +75,7 @@ public class PowerResource {
 	 * @date Out,26 2020
 	 */
 	@ApiOperation(value = "Request the All Powers")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Find all Power sucess"),
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Delete Power by ID sucess"),
 			@ApiResponse(code = 500, message = "Internal Server Error", response = ErrorResponseDTO.class) })
 	@DeleteMapping(path = BASE_URI_V1)
 	public ResponseEntity<String> deleteById(@RequestParam("id") Integer id) {

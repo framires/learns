@@ -12,7 +12,7 @@ import lombok.Setter;
 public class HeroResponse {
 
     private Integer id;
-    private Integer name;
+    private String name;
     private List<PowerResponse> powers = new ArrayList<>();
 
 }

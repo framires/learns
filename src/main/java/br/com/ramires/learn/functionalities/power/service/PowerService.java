@@ -1,5 +1,6 @@
 package br.com.ramires.learn.functionalities.power.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -89,6 +90,65 @@ public class PowerService {
 			}
 		}
 		throw new BadRequestException("power_find_by_id_invalid_id", "Power id not find into database");
+	}
+
+	/**
+	 * Method find and create a new Power
+	 * 
+	 * @param powersList
+	 * @return
+	 */
+	public List<Power> findOrCreatePowerList(List<PowerRequest> powersList) {
+		// create list return
+		List<Power> listPower = new ArrayList<>();
+
+		for (PowerRequest power : powersList) {
+			Power p1;
+			if (power.getId() != null) {
+				// find
+				try {
+					p1 = repository.findById(power.getId()).get();
+				} catch (Exception e) {
+					p1 = null;
+				}
+			} else {
+				// create
+				try {
+					p1 = create(power);
+				} catch (Exception e) {
+					p1 = null;
+				}
+			}
+			if (p1 != null) {
+				listPower.add(p1);
+			}
+		}
+		return listPower;
+	}
+
+	// ################
+	// ################
+	// PRIVATE METHODS
+	// ################
+	// ################
+
+	/**
+	 * Method create new Power
+	 * 
+	 * @param power
+	 * @return
+	 */
+	private Power create(PowerRequest powerRequest) {
+		// parse Request to Model
+		Power power = PowerMapper.INSTANCE.requestToModel(powerRequest);
+
+		Power p1 = repository.findByName(power.getName());
+		if (p1 == null) {
+			repository.save(power);
+			return power;
+		} else {
+			return p1;
+		}
 	}
 
 }
