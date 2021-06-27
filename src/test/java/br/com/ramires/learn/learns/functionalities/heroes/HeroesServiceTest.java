@@ -18,7 +18,7 @@ import br.com.ramires.learn.functionalities.heroes.repository.HeroRepository;
 import br.com.ramires.learn.functionalities.heroes.service.HeroService;
 
 @ExtendWith(MockitoExtension.class)
-public class HeroesServiceTest {
+class HeroesServiceTest {
 
 	@Mock
 	HeroRepository repository;

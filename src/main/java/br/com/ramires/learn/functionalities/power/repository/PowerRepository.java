@@ -5,8 +5,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.ramires.learn.functionalities.power.model.Power;
-import java.lang.String;
-import java.util.List;
 
 @Repository
 public interface PowerRepository extends PagingAndSortingRepository<Power, Integer> {
