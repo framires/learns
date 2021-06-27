@@ -32,13 +32,13 @@ public class HeroService {
 	 * @return {@link HeroResponse}
 	 */
 	@Transactional(readOnly = true)
-	public List<HeroResponse> findAll(Boolean powerlist) {
+	public List<HeroResponse> findAll(boolean powerlist) {
 		// find all list Hero in database
 		if (!powerlist) {
 			List<Hero> list = (List<Hero>) repository.findAll();
 			return HeroMapper.INSTANCE.listModelToResponse(list);
 		} else {
-			List<Hero> list = (List<Hero>) repository.findAllWithPowers();
+			List<Hero> list = repository.findAllWithPowers();
 			return HeroMapper.INSTANCE.listModelToResponseFull(list);
 		}
 	}
