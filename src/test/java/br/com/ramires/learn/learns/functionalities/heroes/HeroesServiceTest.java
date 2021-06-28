@@ -20,6 +20,8 @@ import br.com.ramires.learn.functionalities.heroes.service.HeroService;
 @ExtendWith(MockitoExtension.class)
 class HeroesServiceTest {
 
+	private HeroesDataTest heroesData = new HeroesDataTest();
+
 	@Mock
 	HeroRepository repository;
 
@@ -27,14 +29,27 @@ class HeroesServiceTest {
 	HeroService service;
 
 	@Test
-	@DisplayName("Test Example")
-	void testSucess() {
-
-		Mockito.when(repository.findAllWithPowers()).thenReturn(new ArrayList<Hero>());
-
+	@DisplayName("find all with powers - success")
+	void test_find_all_with_powers() {
+		// Mock
+		Mockito.when(repository.findAllWithPowers()).thenReturn(heroesData.listHero(10, true));
+		// call service
 		List<HeroResponse> result = service.findAll(true);
+		// Assertions
+		Assertions.assertEquals(10, result.size());
+		Assertions.assertEquals(true, result.get(0).getPowers().size() > 0);
+	}
 
-		Assertions.assertEquals(0, result.size());
+	@Test
+	@DisplayName("find all without powers - success")
+	void test_find_all_without_powers() {
+		// mock
+		Mockito.when(repository.findAllWithPowers()).thenReturn(heroesData.listHero(10, false));
+		// call service
+		List<HeroResponse> result = service.findAll(false);
+		// Assertions
+		Assertions.assertEquals(10, result.size());
+		Assertions.assertEquals(false, result.get(0).getPowers().size() > 0);
 	}
 
 }
